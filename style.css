@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+
+@font-face {
+	font-family: "Frutilla Script";
+	src: url(font/Frutilla\ Script.ttf);
+}
+
+.marker {
+  display: inline-block;
+  background: linear-gradient(to right, rgba(42, 92, 170, 0.6) 50%, transparent 50%);
+  background-position: 100% bottom;
+  background-size: 200% 40%;
+  background-repeat: no-repeat;
+  transition: background-position 0.4s;
+}
+
+.marker:hover {
+  background-position: 0% bottom;
+}
+
+
+body {
+  margin: 0px;
+  font-family: "Ubuntu", 'Kosugi Maru', sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+#header {
+  background-image: url("img/me-rev.png"), url("img/graph-paper.png");
+  background-repeat: no-repeat, repeat;
+  background-size: contain, contain;
+  background-position: center right, center center;
+  height: 600px;
+  padding: 0px 120px;
+}
+
+.header-logo {
+  float: left;
+  padding: 20px 60px;
+}
+
+.header-logo p {
+  text-align: center;
+  font-size: 12px;
+}
+
+.header-logo h1 {
+  text-align: center;
+  font-size: 72px;
+  font-family: "Frutilla Script";
+  color: rgb(6, 13, 26);
+  margin: 0px 0px;
+}
+
+.header-logo p {
+  color: rgb(137, 150, 171);
+}
+
+
+.header-nav li {
+  color: rgb(6, 13, 26);
+  float: left;
+  text-align: center;
+  padding: 60px 40px;
+}
+
+.header-nav a {
+  font-size: 20px;
+}
+
+#main {
+  margin: 60px 0px;
+}
+
+.news h2 {
+  text-align: center;
+  font-size: 46px;
+}
+
+.news-list ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap:wrap;
+}
+
+.news-list .post-it {
+  width: 16.5rem;
+  height: 14rem;
+  padding: 1.5em;
+  overflow: hidden;
+  box-shadow: 0 .25rem .25rem hsla(0, 0%, 0%, .1);
+  background-image:
+    linear-gradient(180deg, hsla(0, 0%, 45%, .1) 2rem, hsla(0, 100%, 100%, 0) 2.5rem)
+  , linear-gradient(180deg, hsla(200, 100%, 85%, 1), hsla(200, 100%, 85%, 1));
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin: 26px;
+}
+
+#footer {
+  background-color: rgb(6, 13, 26);
+  color: rgb(211, 223, 245);
+  padding: 40px 360px;
+  height: 200px;
+}
+
+.footer-logo {
+  float: left;
+  padding: 20px 60px;
+}
+
+.footer-logo h1 {
+  text-align: center;
+  font-size: 36px;
+  margin: 0px 0px;
+}
+
+.footer-logo p {
+  text-align: center;
+  font-size: 16px;
+}
+
+
+.footer-list {
+  float: right;
+  font-size: 20px;
+  margin: 0px;
+}
+
+.footer-list li{
+  padding: 5px;
+}
+
+.copy-right {
+  border-top: 1.5px solid rgb(211, 223, 245);
+  padding-top: 15px;
+
+  background-color: rgb(6, 13, 26);
+  color: rgb(211, 223, 245);
+  text-align: center;
+  height: 46px;
+  padding: 26px 0px 0px 0px;
+}
