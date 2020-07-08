@@ -37,6 +37,8 @@ li {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow: hidden;
+  position:relative;
 }
 
 #header {
@@ -47,9 +49,6 @@ li {
   top: 0;
   left: 10;
   margin: 20px 60px;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: center; */
 }
 
 .drawer-nav {
@@ -298,6 +297,8 @@ li {
   flex-direction: row;
   justify-content: center;
   flex-wrap:wrap;
+  margin: 0;
+  padding: 0;
 }
 
 .news-list .post-it {
@@ -385,6 +386,10 @@ li {
 @media screen and (max-width:910px) { 
   #zdo_drawer_button {
     visibility: visible;
+  }
+
+  #header {
+    margin-left: 20px;
   }
 
   .header-logo {
