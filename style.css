@@ -52,11 +52,173 @@ li {
   justify-content: center; */
 }
 
+.drawer-nav {
+  width: 250px;
+  height: 100%;
+  padding-top: 100px;
+  background-color: rgb(16, 69, 153, 0.8);
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  transform: translate(250px);
+  transition: all .5s;
+  z-index: 10000;
+}
+.drawer-nav.active {
+  transform: translateZ(0);
+}
+.drawer-nav li {
+  color: rgb(248, 250, 252);
+  text-align: center;
+  padding: 20px 0;
+}
+
+.drawer-nav a {
+  color: rgb(248, 250, 252);
+  font-size: 22px;
+}
+
+/* .drawer-nav {
+  z-index: 20000;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 100px;
+  height: 100%;
+  background-color: rgb(6, 13, 26);
+}
+ 
+.drawer-nav.active {
+  visibility: visible;
+} */
+
+
+/*+++ Reset +++*/
+#zdo_drawer_button * {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  font: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-align: left;
+  text-decoration: none;
+  list-style: none;
+}
+
+#zdo_drawer_button {
+  visibility: hidden;
+  z-index: 21000;
+  display: block;
+  padding: 0;
+  width: 42px;
+  height: 28px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  text-align: center;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  outline: none;
+}
+
+#zdo_drawer_button .zdo_drawer_bar {
+  display: block;
+  width: 42px;
+  height: 4px;
+  transition: all 0.2s;
+  transform-origin: 0% 0%;
+  transform: translateY(-50%);
+  position: absolute;
+  left: 0;
+}
+
+#zdo_drawer_button .zdo_drawer_bar1 {
+  top: 0;
+}
+
+#zdo_drawer_button .zdo_drawer_bar2 {
+  top: 50%;
+}
+
+#zdo_drawer_button .zdo_drawer_bar3 {
+  top: 100%;
+}
+
+#zdo_drawer_button.active .zdo_drawer_bar {
+  width: 39.6px;
+  left: 7px
+}
+
+#zdo_drawer_button.active .zdo_drawer_bar1 {
+  transform: rotate(0.7853981633974483rad) translateY(-50%);
+  top: 0px
+}
+
+#zdo_drawer_button.active .zdo_drawer_bar2 {
+  opacity: 0;
+}
+
+#zdo_drawer_button.active .zdo_drawer_bar3 {
+  transform: rotate(-0.7853981633974483rad) translateY(-50%);
+  top: calc(100% - 0px)
+}
+
+#zdo_drawer_button.active .zdo_drawer_menu_text {
+  display: none;
+}
+
+#zdo_drawer_button.active .zdo_drawer_close {
+  display: block;
+}
+
+.zdo_drawer_text {
+  width: 100%;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  text-align: center;
+  font-size: 10px;
+}
+
+.zdo_drawer_close {
+  letter-spacing: 0.08em;
+  display: none;
+}
+
+/*+++ Default Button Color +++*/
+#zdo_drawer_button {
+  color: rgb(42,92,170);
+}
+
+#zdo_drawer_button .zdo_drawer_bar {
+  background-color: rgb(42,92,170);
+}
+
+#zdo_drawer_button.active {
+  color: rgb(248, 250, 252);
+}
+
+#zdo_drawer_button.active .zdo_drawer_bar {
+  background-color: rgb(248, 250, 252);
+}
+
+
 .header-logo {
   float: left;
   /* padding: 20px 60px; */
   margin: 20px 60px;
 }
+
 
 .header-logo p {
   text-align: center;
@@ -77,7 +239,6 @@ li {
   color: rgb(42,92,170);
 }
 
-@media screen and (max-width: 480px) { .header-logo h1{color:#FFFFFF} }
 
 .header-nav ul {
   display: flex;
@@ -154,21 +315,21 @@ li {
 }
 
 #footer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   background-color: rgb(6, 13, 26);
   color: rgb(211, 223, 245);
-  padding: 40px 360px;
-  height: 200px;
+  padding: 40px 0;
 }
 
 .footer-logo {
-  float: left;
-  padding: 20px 60px;
+  padding: 0;
 }
 
 .footer-logo h1 {
   text-align: center;
   font-size: 36px;
-  margin: 0px 0px;
 }
 
 
@@ -178,6 +339,7 @@ li {
 }
 
 .footer-logo a {
+  text-align: center;
   color: rgb(211, 223, 245);
 }
 
@@ -186,16 +348,22 @@ li {
 }
 
 .footer-list {
-  float: right;
   font-size: 20px;
   margin: 0px;
 }
 
-.footer-list li{
-  padding: 5px;
+.footer-list ul {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-list li {
+  text-align: center;
+  padding: 5px 0;
 }
 
 .footer-list a{
+  text-align: center;
   color: rgb(211, 223, 245);
 }
 
@@ -212,4 +380,22 @@ li {
   text-align: center;
   height: 46px;
   padding: 26px 0px 0px 0px;
+}
+
+@media screen and (max-width:910px) { 
+  #zdo_drawer_button {
+    visibility: visible;
+  }
+
+  .header-logo {
+    margin: 0;
+  }
+
+  .header-logo h1 {
+    margin: 0;
+  }
+
+  .header-nav {
+    visibility: hidden;
+  }
 }
