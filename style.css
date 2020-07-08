@@ -1,9 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap");
 
 @font-face {
 	font-family: "Frutilla Script";
 	src: url(font/Frutilla\ Script.ttf);
+}
+
+* {
+  text-decoration: none;
 }
 
 .marker {
@@ -19,36 +24,47 @@
   background-position: 0% bottom;
 }
 
-
 body {
   margin: 0px;
-  font-family: "Ubuntu", 'Kosugi Maru', sans-serif;
+  font-family: "Ubuntu", "Kosugi Maru", sans-serif;
 }
 
 li {
   list-style: none;
 }
 
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 #header {
-  background-image: url("img/me-rev.png"), url("img/graph-paper.png");
-  background-repeat: no-repeat, repeat;
-  background-size: contain, contain;
-  background-position: center right, center center;
-  height: 600px;
-  padding: 0px 120px;
+  height: 120px;
+  z-index: 11000;
+
+  position: absolute;
+  top: 0;
+  left: 10;
+  margin: 20px 60px;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center; */
 }
 
 .header-logo {
   float: left;
-  padding: 20px 60px;
+  /* padding: 20px 60px; */
+  margin: 20px 60px;
 }
 
 .header-logo p {
   text-align: center;
   font-size: 12px;
+  color: rgb(137, 150, 171);
 }
 
-.header-logo h1 {
+.header-logo h1 a{
   text-align: center;
   font-size: 72px;
   font-family: "Frutilla Script";
@@ -56,20 +72,55 @@ li {
   margin: 0px 0px;
 }
 
-.header-logo p {
-  color: rgb(137, 150, 171);
+.header-logo h1 a:hover {
+	transition: 0.3s ;
+  color: rgb(42,92,170);
 }
 
+@media screen and (max-width: 480px) { .header-logo h1{color:#FFFFFF} }
+
+.header-nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  flex-wrap: nowrap;
+}
 
 .header-nav li {
   color: rgb(6, 13, 26);
-  float: left;
   text-align: center;
-  padding: 60px 40px;
 }
 
 .header-nav a {
+  margin: 60px 40px;
   font-size: 20px;
+  white-space: pre;
+}
+
+.header-nav a:visited {
+  color: rgb(6, 13, 26);
+}
+
+
+.main-image {
+  position: relative;
+  width: 100%;
+  z-index: 1000;
+  display: block;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  /* padding: 0px 120px; */
+}
+
+.main-image img{
+  position: absolute;
+  width: auto;
+  height: 80%;
+  display : block; /*ブロック要素に変換*/
+  bottom: 0;
+  margin-left: 70%;
 }
 
 #main {
@@ -120,11 +171,19 @@ li {
   margin: 0px 0px;
 }
 
+
 .footer-logo p {
   text-align: center;
   font-size: 16px;
 }
 
+.footer-logo a {
+  color: rgb(211, 223, 245);
+}
+
+.footer-logo a:hover {
+  color: rgba(211, 223, 245, 0.75);
+}
 
 .footer-list {
   float: right;
@@ -134,6 +193,14 @@ li {
 
 .footer-list li{
   padding: 5px;
+}
+
+.footer-list a{
+  color: rgb(211, 223, 245);
+}
+
+.footer-list a:hover{
+  color: rgba(211, 223, 245, 0.75);
 }
 
 .copy-right {
