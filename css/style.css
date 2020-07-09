@@ -64,6 +64,7 @@ li {
   transition: all .5s;
   z-index: 10000;
 }
+
 .drawer-nav.active {
   transform: translateZ(0);
 }
@@ -72,28 +73,10 @@ li {
   text-align: center;
   padding: 20px 0;
 }
-
 .drawer-nav a {
   color: rgb(248, 250, 252);
   font-size: 22px;
 }
-
-/* .drawer-nav {
-  z-index: 20000;
-  visibility: hidden;
-  position: fixed;
-  top: 0;
-  right: 100px;
-  height: 100%;
-  background-color: rgb(6, 13, 26);
-}
- 
-.drawer-nav.active {
-  visibility: visible;
-} */
-
-
-/*+++ Reset +++*/
 #zdo_drawer_button * {
   margin: 0;
   padding: 0;
@@ -111,7 +94,6 @@ li {
   text-decoration: none;
   list-style: none;
 }
-
 #zdo_drawer_button {
   visibility: hidden;
   z-index: 21000;
@@ -129,7 +111,6 @@ li {
   cursor: pointer;
   outline: none;
 }
-
 #zdo_drawer_button .zdo_drawer_bar {
   display: block;
   width: 42px;
@@ -140,46 +121,36 @@ li {
   position: absolute;
   left: 0;
 }
-
 #zdo_drawer_button .zdo_drawer_bar1 {
   top: 0;
 }
-
 #zdo_drawer_button .zdo_drawer_bar2 {
   top: 50%;
 }
-
 #zdo_drawer_button .zdo_drawer_bar3 {
   top: 100%;
 }
-
 #zdo_drawer_button.active .zdo_drawer_bar {
   width: 39.6px;
   left: 7px
 }
-
 #zdo_drawer_button.active .zdo_drawer_bar1 {
   transform: rotate(0.7853981633974483rad) translateY(-50%);
   top: 0px
 }
-
 #zdo_drawer_button.active .zdo_drawer_bar2 {
   opacity: 0;
 }
-
 #zdo_drawer_button.active .zdo_drawer_bar3 {
   transform: rotate(-0.7853981633974483rad) translateY(-50%);
   top: calc(100% - 0px)
 }
-
 #zdo_drawer_button.active .zdo_drawer_menu_text {
   display: none;
 }
-
 #zdo_drawer_button.active .zdo_drawer_close {
   display: block;
 }
-
 .zdo_drawer_text {
   width: 100%;
   position: absolute;
@@ -188,36 +159,27 @@ li {
   text-align: center;
   font-size: 10px;
 }
-
 .zdo_drawer_close {
   letter-spacing: 0.08em;
   display: none;
 }
-
-/*+++ Default Button Color +++*/
 #zdo_drawer_button {
   color: rgb(42,92,170);
 }
-
 #zdo_drawer_button .zdo_drawer_bar {
   background-color: rgb(42,92,170);
 }
-
 #zdo_drawer_button.active {
   color: rgb(248, 250, 252);
 }
-
 #zdo_drawer_button.active .zdo_drawer_bar {
   background-color: rgb(248, 250, 252);
 }
 
-
 .header-logo {
   float: left;
-  /* padding: 20px 60px; */
   margin: 20px 60px;
 }
-
 
 .header-logo p {
   text-align: center;
@@ -271,7 +233,6 @@ li {
   background-size: cover;
   background-position: center;
   height: 600px;
-  /* padding: 0px 120px; */
 }
 
 .main-image img{
@@ -283,12 +244,23 @@ li {
   margin-left: 70%;
 }
 
+.main-image.sub {
+  height: 360px;
+}
+
 #main {
   margin: 60px 0px;
 }
 
-.news h2 {
+#main.sub {
+  margin-bottom: 0px;
+}
+
+.news {
   text-align: center;
+}
+
+.news h2 {
   font-size: 46px;
 }
 
@@ -315,6 +287,74 @@ li {
   margin: 26px;
 }
 
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* justify-content:space-around; */
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  margin: 60px 0;
+}
+
+.profile-icon img {
+  width: 50%;
+  margin: 20px 0;
+}
+
+.profile-text td{
+  padding-right: 20px;
+  text-align: left;
+}
+
+
+.history {
+  background-color: rgb(228, 240, 254);
+  display: flex;
+  justify-content: center;
+}
+
+.timeline {
+  list-style: none;
+}
+.timeline > li {
+  margin-bottom: 60px;
+  text-align: left;
+}
+
+/* for Desktop */
+@media ( min-width : 640px ){
+  .timeline > li {
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+    margin-left: 100px;
+  }
+  .timeline-date {
+    width: 110px;
+    float: left;
+    margin-top: 20px;
+  }
+  .timeline-content {
+    width: 75%;
+    float: left;
+    border-left: 3px #f8fafc solid;
+    padding-left: 30px;
+    padding-bottom: 25px;
+  }
+}
+  .timeline-content:before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #fc3232;
+    position: absolute;
+    left: 106px;
+    top: 24px;
+    border-radius: 100%;
+  }
+
 #footer {
   display: flex;
   flex-wrap: wrap;
@@ -332,7 +372,6 @@ li {
   text-align: center;
   font-size: 36px;
 }
-
 
 .footer-logo p {
   text-align: center;
