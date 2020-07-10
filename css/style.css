@@ -241,11 +241,7 @@ li {
   height: 80%;
   display : block; /*ブロック要素に変換*/
   bottom: 0;
-  margin-left: 70%;
-}
-
-.main-image.sub {
-  height: 360px;
+  right: 110px;
 }
 
 #main {
@@ -308,7 +304,6 @@ li {
   text-align: left;
 }
 
-
 .history {
   background-color: rgb(228, 240, 254);
   display: flex;
@@ -344,16 +339,49 @@ li {
     padding-bottom: 25px;
   }
 }
-  .timeline-content:before {
-    content: '';
-    width: 12px;
-    height: 12px;
-    background: #fc3232;
-    position: absolute;
-    left: 106px;
-    top: 24px;
-    border-radius: 100%;
-  }
+.timeline-content:before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: #fc3232;
+  position: absolute;
+  left: 106px;
+  top: 24px;
+  border-radius: 100%;
+}
+
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 0;
+}
+
+.box .pict img {
+  width: 30%;
+  height:auto;
+}
+
+.box:nth-child(even) {
+  /* background-color: #f8fafc; */
+  background-color: rgb(228, 240, 254);
+}
+
+.wrap-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 0;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.skill img {
+  padding: 60px;
+}
 
 #footer {
   display: flex;
@@ -441,5 +469,14 @@ li {
 
   .header-nav {
     visibility: hidden;
+  }
+}
+
+@media screen and (max-width:760px) { 
+  .main-image img{
+    position: absolute;
+    width: 250px;
+    height: auto;
+    right: 30px;
   }
 }
