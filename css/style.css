@@ -24,6 +24,17 @@
   background-position: 0% bottom;
 }
 
+a.marker {
+  font: rgb(6, 13, 26);
+}
+
+.marker a{
+  font: rgb(6, 13, 26);
+}
+.marker a:visited{
+  font: rgb(6, 13, 26);
+}
+
 body {
   margin: 0px;
   font-family: "Ubuntu", "Kosugi Maru", sans-serif;
