@@ -4,7 +4,7 @@
 
 @font-face {
 	font-family: "Frutilla Script";
-	src: url(font/Frutilla\ Script.ttf);
+	src: url("../font/FrutillaScript.ttf") format("truetype");;
 }
 
 * {
