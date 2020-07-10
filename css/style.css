@@ -219,7 +219,7 @@ li {
   white-space: pre;
 }
 
-.header-nav a:visited {
+.header-nav a:link, .header-nav a:visited, .header-nav a:hover, .header-nav a:active {
   color: rgb(6, 13, 26);
 }
 
@@ -300,7 +300,8 @@ li {
 }
 
 .profile-text td{
-  padding-right: 20px;
+  padding: 0 15px;
+  /* padding-right: 20px; */
   text-align: left;
 }
 
@@ -308,6 +309,7 @@ li {
   background-color: rgb(228, 240, 254);
   display: flex;
   justify-content: center;
+  padding-right: 30px;
 }
 
 .timeline {
@@ -380,7 +382,7 @@ li {
 }
 
 .skill img {
-  padding: 60px;
+  padding: 40px;
 }
 
 #footer {
@@ -478,5 +480,16 @@ li {
     width: 250px;
     height: auto;
     right: 30px;
+  }
+}
+
+@media screen and (max-width:420px) { 
+  .profile-text td{
+    font-size: 14px;
+  }
+}
+@media screen and (max-width:375px) { 
+  .profile-text td{
+    font-size: 12px;
   }
 }
