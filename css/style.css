@@ -243,7 +243,11 @@ li {
   overflow: hidden;
   background-size: cover;
   background-position: center;
-  height: 600px;
+  height: 480px;
+}
+
+.main-image.sub {
+    height: 300px;
 }
 
 .main-image img{
@@ -489,6 +493,12 @@ li {
   .main-image img{
     position: absolute;
     width: 250px;
+    height: auto;
+    right: 30px;
+  }
+  .main-image.sub img {
+    position: absolute;
+    width: 150px;
     height: auto;
     right: 30px;
   }
