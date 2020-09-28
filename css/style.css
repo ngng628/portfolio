@@ -44,6 +44,16 @@ li {
   list-style: none;
 }
 
+code {
+  display: inline-block;
+  padding: 0.1em 0.35em; /* 文字周りの余白 */
+  color: #444; /* 文字色 */
+  background-color: #e7edf3; /* 背景色 */
+  border-radius: 3px; /* 角丸 */
+  border: solid 1px #d6dde4; /* 枠線 */
+  font-family: Consolas, Menlo, 'Liberation Mono', Courier, monospace;
+}
+
 #wrapper {
   display: flex;
   flex-direction: column;
@@ -243,20 +253,23 @@ li {
   overflow: hidden;
   background-size: cover;
   background-position: center;
-  height: 480px;
+  height: 560px;
 }
 
 .main-image.sub {
-    height: 300px;
+    height: 310px;
 }
 
-.main-image img{
+.main-image img {
   position: absolute;
   width: auto;
-  height: 80%;
+  height: 70%;
   display : block; /*ブロック要素に変換*/
   bottom: 0;
   right: 110px;
+}
+.main-image.sub img {
+  height: 60%;
 }
 
 #main {
@@ -284,7 +297,7 @@ li {
   padding: 0;
 }
 
-.news-list .post-it {
+.post-it {
   width: 16.5rem;
   height: 14rem;
   padding: 1.5em;
@@ -466,6 +479,73 @@ li {
   height: 46px;
   padding: 26px 0px 0px 0px;
 }
+
+.wrap-blog {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  padding: 0 12vw;
+}
+
+.blog-main {
+  margin-right: 4em;
+}
+
+.date {
+  padding-bottom: 1.2em;
+  font-size: 14px;
+}
+
+article {
+  padding-bottom: 4em;
+}
+
+article time {
+  color: gray;
+}
+
+article h2 a {
+  font: rgb(6, 13, 26);
+}
+
+article h2 a:link, a:visited, a:hover, a:active {
+  font: rgb(6, 13, 26);
+}
+
+.blog-main h2 {
+  margin: 0;
+  padding: 0.4em 0.5em;
+  color:rgb(6, 13, 26);
+  background: #f4f4f4;
+  border-left: solid 5px #7db4e6;
+  border-bottom: solid 3px #d7d7d7;
+}
+
+.blog-main p {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+.sub-main h2 {
+  text-align: center;
+}
+
+ul.late {
+  padding: 0;
+}
+
+.late .post-it {
+  width: 8rem;
+  height: 7rem;
+  overflow: hidden;
+  box-shadow: 0 .25rem .25rem hsla(0, 0%, 0%, .1);
+  background-image:
+    linear-gradient(180deg, rgba(140, 129, 12, .1) 1rem, rgba(140, 129, 12, 0) 1.5rem)
+  , linear-gradient(180deg, rgba(241, 234, 162, 1), rgba(241, 234, 162, 1));
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin: 26px;
+  /* text-align: center; */
+}
+
 
 @media screen and (max-width:910px) { 
   #zdo_drawer_button {

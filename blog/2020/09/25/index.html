@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css">
+  <script type="text/javascript" src="../../../../js/script.js"></script>
+  <title>Blog | んぐのポートフォリオ</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+  <link rel="shortcut icon" href="../../../../favicon.ico" type="image/vnd.microsoft.icon">
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="header">
+      <button type="button" id="zdo_drawer_button">
+        <span class="zdo_drawer_bar zdo_drawer_bar1"></span>
+        <span class="zdo_drawer_bar zdo_drawer_bar2"></span>
+        <span class="zdo_drawer_bar zdo_drawer_bar3"></span>
+        <span class="zdo_drawer_menu_text zdo_drawer_text">MENU</span>
+        <span class="zdo_drawer_close zdo_drawer_text">CLOSE</span>
+      </button>
+      <div class="header-logo sub">
+        <h1><a href="../../../../index.html">ngng628</a></h1>
+        <p>んぐのポートフォリオ</p>
+      </div>
+      <div class="header-nav">
+        <ul>
+          <li><a href="../../../../about-me/index.html" class="marker">About Me</a></li>
+          <li><a href="../../../../works/index.html" class="marker">Works</a></li>
+          <li><a href="../../../../skills/index.html" class="marker">Skills</a></li>
+          <li><a href="../../../../blog/index.html" class="marker">Blog</a></li>
+          <li><a href="../../../../contact/index.html" class="marker">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main-image sub" style="background-image:url('../../../../img/graph-paper.png');">
+      <img src="../../../../img/me-rev.png" alt="ngng628">
+    </div>
+
+
+    <div class="drawer-nav" id="drawer-nav">
+      <ul>
+        <li><a href="../../../../about-me/index.html">About Me</a></li>
+        <li><a href="../../../../works/index.html">Works</a></li>
+        <li><a href="../../../../skills/index.html">Skills</a></li>
+        <li><a href="../../../../blog/index.html">Blog</a></li>
+        <li><a href="../../../../contact/index.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div id="main">
+      <div class="news">
+        <h2>Blog</h2>
+      </div>
+      <div class="wrap-blog">
+        <div class="blog-main">
+          <article>
+            <h2>Codeforces Round #672 (Div.2)に参加しました</h2>
+            <div class="date"><i class="far fa-calendar-alt" style="color:gray;"></i> <time datetime="2020-09-25">2020/09/25</time></div>
+
+            <p>試験が少なすぎて4連休になりました。時間があるので普段はあまり参加しないコドフォに出てみました。</p>
+            <h3><a href="https://codeforces.com/contest/1420/problem/A">A. Cubes Sorting</a></h3>
+            <p>バブルソートを行います。操作回数が\(\frac{n(n-1)}{2} - 1\)以下となる配列なら<code>YES</code>を、そうでなければ<code>NO</code>と出力しなさい。という問題できた。</p>
+            <p>バブルソートの「最悪」計算量が\(\frac{n(n-1)}{2}\)であることを知っていれば、そのようなケースの配列と一致しているかを確認するだけですね。知らなくても滅茶苦茶ググってバブルソートの交換回数（反転数と言います）を求めるプログラムを探せば難なくACできます。</p>
+            <p>しかし私はこの問題を解く直前、下のツイートのような問題を作問しておりまして、まんまと引っ張られました。</p>
+            <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">この前のコドフォのA問題、これに引っ張られて2WAした（） <a href="https://t.co/WuyS5YVELD">pic.twitter.com/WuyS5YVELD</a></p>&mdash; んぐ (@ngng628) <a href="https://twitter.com/ngng628/status/1309513024185622529?ref_src=twsrc%5Etfw">September 25, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <p>流石に2WAしたのは僕の落ち度ですけど…w</p>
+            <p>結局僕はググってFenwick tree (BIT)による計算方法をコピって通しました。今後このようなことがないようライブラリ化しました。よければ見てください</p>
+            <pre>
+              <code>
+struct FenwickTree {
+    int n;
+    vi bit;
+    FenwickTree(int _n) : n(_n), bit(n+1, 0) {}
+
+    void add(int i, int x) {
+        if (i == 0) return;
+        for (int k = i; k &lt;= n; k += (k &amp; -k)) bit[k]+=x;
+    }
+
+    int sum(int i) {
+        int s = 0;
+        if (i == 0) return s;
+        for (int k = i; k &gt; 0; k -= (k &amp; -k)) s+=bit[k];
+        return s;
+    }
+
+    int lower_bound(int x) {
+        if (x &lt;= 0) return 0;
+        else {
+            int i = 0; int r = 1;
+            while (r &lt; n) r &lt;&lt;= 1;
+            for (int dist = r; dist &gt; 0; dist &gt;&gt;= 1) {
+                if (i + dist &lt; n and bit[i + dist] &lt; x) {
+                    x -= bit[i + dist];
+                    i += dist;
+                }
+            }
+            return i+1;
+        }
+    }
+};
+
+int InversionNumber(const vi&amp; v) {
+    const int n = len(v);
+    FenwickTree fw(n);
+    int ret = 0;
+    rep (i, n) {
+        ret += i - fw.sum(v[i]);
+        fw.add(v[i], 1);
+    }
+    return ret;
+}
+              </code>
+            </pre>
+            <p>「転倒数を求めよ」という問題以外で使えるかは分かりませんが…反省の意味も込めて。</p>
+
+            <h3><a href="https://codeforces.com/contest/1420/problem/B">B. Rock and Leve</a></h3>
+            <p>目は通しました。左辺を \(i\) の関数に、右辺を \(j\) の関数にするタイプの問題かなぁと考えていたんですが、そう簡単には移項させてくれませんでした。</p>
+            <p>仕方がないので本番では先にC1を通すことにしました。時間があれば解けただろうなーというレベルの問題なので悔しい</p>
+
+            <h3><a href="https://codeforces.com/contest/1420/problem/C1">C1. Pokémon Army (easy version)</a></h3>
+            <p>DeepLがいきなり「ピカチュウ」とか言い始めたのでびっくりしました。原文読んだらちゃんとピカチュウって書いててさらにびっくり。てかよくよくタイトルみたらPokémonって書いとるやん。</p>
+            <p>ポケモン好きなので問題になるのは嬉しいのですが、プレッシャーにもなるので解くのはちょっと焦りました。</p>
+            <p>問題をよく読むとAtCoderでやった問題だ！となりました（全く同じ問題なかった？）。配列の極値を求めて、あとは偶奇や最初の山谷に気をつけて良い感じに足し引きすれば答えが求まります。</p>
+            <p>DPで解く解法もあるみたいですね。僕はできません。</p>
+            <p>\(q = 0\)で良かった～～～！</p>
+          </article>
+        </div>
+        <div class="sub-main">
+          <h2>最新の記事</h2>
+          <ul class=late>
+            <li class="post-it">Codeforces Round #672 (Div.2)に参加しました</li>
+            <a href="../../09/23/index.html"><li class="post-it">前期期末試験が終了しました</li></a>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div class="footer-logo">
+          <h1><a href="../../../../index.html">ngng628's portfolio</a></h1>
+          <p><a href="../../../../index.html">んぐのポートフォリオ</a></p>
+      </div>
+      <div class="footer-list">
+        <ul>
+          <li><a href="../../../../about-me/index.html">About Me</a></li>
+          <li><a href="../../../../works/index.html">Works</a></li>
+          <li><a href="../../../../skills/index.html">Skills</a></li>
+          <li><a href="../../../../blog/index.html">Blog</a></li>
+          <li><a href="../../../../contact/index.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy-right">
+      <small>© Copyright 2020 ngng628. All Rights Reserved.</small>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
