@@ -56,14 +56,23 @@
       <div class="news">
         <h2>Blog</h2>
       </div>
+      <nav>
+        <ol>
+          <ul>
+            <li><a href="../../../index.html">ブログトップ</a></li>
+            <li><a href="../../../category/compe.html">競プロ</a></li>
+            <li>Codeforces Round #672 (Div.2)に参加しました</li>
+          </ul>
+        </ol>
+      </nav>
       <div class="wrap-blog">
         <div class="blog-main">
           <article>
-            <h2>Codeforces Round #672 (Div.2)に参加しました</h2>
+            <h3><a href="./index.html">Codeforces Round #672 (Div.2)に参加しました</a></h3>
             <div class="date"><i class="far fa-calendar-alt" style="color:gray;"></i> <time datetime="2020-09-25">2020/09/25</time></div>
 
             <p>試験が少なすぎて4連休になりました。時間があるので普段はあまり参加しないコドフォに出てみました。</p>
-            <h3><a href="https://codeforces.com/contest/1420/problem/A">A. Cubes Sorting</a></h3>
+            <h4><a href="https://codeforces.com/contest/1420/problem/A">A. Cubes Sorting</a></h4>
             <p>バブルソートを行います。操作回数が\(\frac{n(n-1)}{2} - 1\)以下となる配列なら<code>YES</code>を、そうでなければ<code>NO</code>と出力しなさい。という問題できた。</p>
             <p>バブルソートの「最悪」計算量が\(\frac{n(n-1)}{2}\)であることを知っていれば、そのようなケースの配列と一致しているかを確認するだけですね。知らなくても滅茶苦茶ググってバブルソートの交換回数（反転数と言います）を求めるプログラムを探せば難なくACできます。</p>
             <p>しかし私はこの問題を解く直前、下のツイートのような問題を作問しておりまして、まんまと引っ張られました。</p>
@@ -119,11 +128,11 @@ int InversionNumber(const vi&amp; v) {
             </pre>
             <p>「転倒数を求めよ」という問題以外で使えるかは分かりませんが…反省の意味も込めて。</p>
 
-            <h3><a href="https://codeforces.com/contest/1420/problem/B">B. Rock and Leve</a></h3>
+            <h4><a href="https://codeforces.com/contest/1420/problem/B">B. Rock and Leve</a></h4>
             <p>目は通しました。左辺を \(i\) の関数に、右辺を \(j\) の関数にするタイプの問題かなぁと考えていたんですが、そう簡単には移項させてくれませんでした。</p>
             <p>仕方がないので本番では先にC1を通すことにしました。時間があれば解けただろうなーというレベルの問題なので悔しい</p>
 
-            <h3><a href="https://codeforces.com/contest/1420/problem/C1">C1. Pokémon Army (easy version)</a></h3>
+            <h4><a href="https://codeforces.com/contest/1420/problem/C1">C1. Pokémon Army (easy version)</a></h4>
             <p>DeepLがいきなり「ピカチュウ」とか言い始めたのでびっくりしました。原文読んだらちゃんとピカチュウって書いててさらにびっくり。てかよくよくタイトルみたらPokémonって書いとるやん。</p>
             <p>ポケモン好きなので問題になるのは嬉しいのですが、プレッシャーにもなるので解くのはちょっと焦りました。</p>
             <p>問題をよく読むとAtCoderでやった問題だ！となりました（全く同じ問題なかった？）。配列の極値を求めて、あとは偶奇や最初の山谷に気をつけて良い感じに足し引きすれば答えが求まります。</p>
@@ -132,11 +141,7 @@ int InversionNumber(const vi&amp; v) {
           </article>
         </div>
         <div class="sub-main">
-          <h2>最新の記事</h2>
-          <ul class=late>
-            <li class="post-it">Codeforces Round #672 (Div.2)に参加しました</li>
-            <a href="../../09/23/index.html"><li class="post-it">前期期末試験が終了しました</li></a>
-          </ul>
+          <iframe src="../../../latest-info.html" scrolling="no" frameborder="0" style="width: 100%; height: 100%;"></iframe>
         </div>
       </div>
     </div>

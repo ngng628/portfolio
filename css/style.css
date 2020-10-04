@@ -89,12 +89,12 @@ code {
 .drawer-nav.active {
   transform: translateZ(0);
 }
-.drawer-nav li {
+.drawer-nav li  {
   color: rgb(248, 250, 252);
   text-align: center;
   padding: 20px 0;
 }
-.drawer-nav a {
+.drawer-nav li a {
   color: rgb(248, 250, 252);
   font-size: 22px;
 }
@@ -429,19 +429,30 @@ code {
 .footer-logo h1 {
   text-align: center;
   font-size: 36px;
+  margin-bottom: 6px;
 }
 
 .footer-logo p {
   text-align: center;
   font-size: 16px;
+  margin-top: 6px;
 }
 
-.footer-logo a {
+.footer-logo h1 a {
   text-align: center;
   color: rgb(211, 223, 245);
 }
 
-.footer-logo a:hover {
+.footer-logo h1 a:hover {
+  color: rgba(211, 223, 245, 0.75);
+}
+
+.footer-logo p a {
+  text-align: center;
+  color: rgb(211, 223, 245);
+}
+
+.footer-logo p a:hover {
   color: rgba(211, 223, 245, 0.75);
 }
 
@@ -460,12 +471,12 @@ code {
   padding: 5px 0;
 }
 
-.footer-list a{
+.footer-list li a{
   text-align: center;
   color: rgb(211, 223, 245);
 }
 
-.footer-list a:hover{
+.footer-list li a:hover{
   color: rgba(211, 223, 245, 0.75);
 }
 
@@ -484,6 +495,7 @@ code {
   display: grid;
   grid-template-columns: 4fr 1fr;
   padding: 0 12vw;
+  
 }
 
 .blog-main {
@@ -503,15 +515,19 @@ article time {
   color: gray;
 }
 
-article h2 a {
-  font: rgb(6, 13, 26);
+article h3 a {
+  color: rgb(6, 13, 26);
 }
 
-article h2 a:link, a:visited, a:hover, a:active {
-  font: rgb(6, 13, 26);
+article h3 a:link, a:visited {
+  color: rgb(6, 13, 26);
+}
+article h3 a:hover, a:active {
+  color: rgb(42,92,170);
 }
 
-.blog-main h2 {
+.blog-main h3 {
+  font-size: 1.5em;
   margin: 0;
   padding: 0.4em 0.5em;
   color:rgb(6, 13, 26);
@@ -524,6 +540,16 @@ article h2 a:link, a:visited, a:hover, a:active {
   font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 }
 
+.sub-main ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap:wrap;
+  margin: 0;
+  padding: 0;
+}
+
 .sub-main h2 {
   text-align: center;
 }
@@ -532,7 +558,7 @@ ul.late {
   padding: 0;
 }
 
-.late .post-it {
+.late li.post-it {
   width: 8rem;
   height: 7rem;
   overflow: hidden;
@@ -542,10 +568,46 @@ ul.late {
   , linear-gradient(180deg, rgba(241, 234, 162, 1), rgba(241, 234, 162, 1));
   font-size: 0.9rem;
   line-height: 1.8;
-  margin: 26px;
-  /* text-align: center; */
+  margin: 1em 0;
+  margin-right: 0;
+  text-align: center;
 }
 
+ol ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  padding: 0 0 26px 0;
+}
+
+ol li {
+  color: #888;
+}
+
+ol li a {
+  padding: 5px;
+  color: #888;
+  font-size: 16px;
+}
+
+ol li a:visited, a:link {
+  color: #888;
+}
+
+ol li a:hover, a:active {
+  color: rgb(42,92,170);
+}
+
+ol li:after {
+  content: '\003e';
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #888;
+}
+
+ol li:last-child:after {
+  content: ""; /* 最後のliの後ろには区切り文字を表示しない */
+}
 
 @media screen and (max-width:910px) { 
   #zdo_drawer_button {
@@ -594,3 +656,4 @@ ul.late {
     font-size: 12px;
   }
 }
+
