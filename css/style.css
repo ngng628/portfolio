@@ -526,6 +526,17 @@ article h3 a:hover, a:active {
   color: rgb(42,92,170);
 }
 
+article h4 a {
+  color: rgb(6, 13, 26);
+}
+
+article h4 a:link, a:visited {
+  color: rgb(6, 13, 26);
+}
+article h4 a:hover, a:active {
+  color: rgb(42,92,170);
+}
+
 .blog-main h3 {
   font-size: 1.5em;
   margin: 0;
