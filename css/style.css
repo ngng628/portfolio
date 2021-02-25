@@ -667,4 +667,10 @@ ol li:last-child:after {
     font-size: 12px;
   }
 }
+@media screen and (max-width:160px) { 
+  .sub-main {
+    display:none;
+  }
+}
+
 
