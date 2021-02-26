@@ -495,7 +495,6 @@ code {
   display: grid;
   grid-template-columns: 4fr 1fr;
   padding: 0 12vw;
-  
 }
 
 .blog-main {
@@ -673,4 +672,8 @@ ol li:last-child:after {
   }
 }
 
-
+@media screen and (max-width:620px) { 
+  .wrap-blog {
+    padding: 24px;
+  }
+}
