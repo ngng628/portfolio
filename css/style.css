@@ -394,6 +394,10 @@ code {
   height:auto;
 }
 
+.pict a img:hover {
+  opacity: 0.75;
+}
+
 .box:nth-child(even) {
   /* background-color: #f8fafc; */
   background-color: rgb(228, 240, 254);
